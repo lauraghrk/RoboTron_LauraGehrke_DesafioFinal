@@ -1,0 +1,18 @@
+LOGIN
+
+Caso 1:
+POST - Login com dados válidos
+- Utilizar dados válidos
+- Garantir que o usuário esteja cadastrado
+- Deve retornar status code 200
+- Deve retornar a mensagem "Login realizado com sucesso"
+
+Caso 2:
+POST - Login com dados inválidos
+- Utilizar dados inválidos
+- Deve retornar status code 400
+- Deve retornar a mensagem "Email e/ou senha inválidos"
+
+USUÁRIOS
+
+Caso 3:

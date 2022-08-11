@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.8.2 on win32)" generated="20220811 14:27:46.077" rpa="false" schemaversion="3">
+<suite id="s1" name="Testes Api Serverest" source="C:\Users\Laura\Documents\Programa de Bolsas Compass.UOL\RoboTron_LauraGehrke_DesafioFinal\desafio_final\testes_api_serverest.robot">
+<test id="s1-t1" name="Cenário 1: POST Login com dados válidos" line="10">
+<kw name="Criar sessão">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>serverest</arg>
+<arg>https://serverest.dev</arg>
+<arg>{"email": "fulano@qa.com", "password": "teste"}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220811 14:27:46.293" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={'email': 'fulano@qa.com', 'password': 'teste'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220811 14:27:46.293" endtime="20220811 14:27:46.293"/>
+</kw>
+<status status="PASS" starttime="20220811 14:27:46.293" endtime="20220811 14:27:46.293"/>
+</kw>
+<kw name="POST Endpoint /login">
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/login</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20220811 14:27:47.033" level="INFO">POST Request : url=https://serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'email': 'fulano@qa.com', 'password': 'teste', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20220811 14:27:47.033" level="INFO">POST Response : url=https://serverest.dev/login 
+ status=400, reason=Bad Request 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '731f2ea6-3881-45f6-9aa7-cfd55972decf', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'f53b22f9ff64fdf3c616d60adeba46a5', 'Date': 'Thu, 11 Aug 2022 17:27:46 GMT', 'Server': 'Google Frontend', 'Content-Length': '84'} 
+ body={
+    "email": "email é obrigatório",
+    "password": "password é obrigatório"
+} 
+ </msg>
+<msg timestamp="20220811 14:27:47.033" level="INFO">c:\users\laura\appdata\local\programs\python\python38\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220811 14:27:47.033" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/login</msg>
+<status status="FAIL" starttime="20220811 14:27:46.293" endtime="20220811 14:27:47.033"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20220811 14:27:47.033" endtime="20220811 14:27:47.033"/>
+</kw>
+<status status="FAIL" starttime="20220811 14:27:46.293" endtime="20220811 14:27:47.033"/>
+</kw>
+<kw name="Validar status code &quot;200&quot;" sourcename="Validar status code &quot;${statuscode}&quot;">
+<status status="NOT RUN" starttime="20220811 14:27:47.049" endtime="20220811 14:27:47.049"/>
+</kw>
+<kw name="Validar mensagem &quot;Login realizado com sucesso&quot;" sourcename="Validar mensagem &quot;${message}&quot;">
+<status status="NOT RUN" starttime="20220811 14:27:47.049" endtime="20220811 14:27:47.049"/>
+</kw>
+<status status="FAIL" starttime="20220811 14:27:46.293" endtime="20220811 14:27:47.049">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/login</status>
+</test>
+<doc>Casos te teste da API ServeRest</doc>
+<status status="FAIL" starttime="20220811 14:27:46.092" endtime="20220811 14:27:47.049"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Testes Api Serverest">Testes Api Serverest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
