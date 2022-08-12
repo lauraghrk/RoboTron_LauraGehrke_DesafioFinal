@@ -16,3 +16,4 @@ POST - Login com dados inválidos
 USUÁRIOS
 
 Caso 3:
+GET - Listar
