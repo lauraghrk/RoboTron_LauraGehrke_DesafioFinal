@@ -5,6 +5,7 @@ Library          RequestsLibrary
 Resource        ./usuarios_keywords.robot
 Resource        ./login_keywords.robot
 Resource        ./produtos_keywords.robot
+Resource        ./common.robot
 
 #Sessão para definição de variáveis
 *** Variables ***
@@ -17,7 +18,7 @@ Cenário: GET Todos os Usuários 200
     Criar Sessão
     GET Endpoint /usuarios
     Validar Status Code "200"
-    Validar Quantidade "${28}"
+    #Validar Quantidade "${28}"
     Printar Conteúdo Response
 
 Cenário: POST Cadastrar Usuário 201
@@ -60,19 +61,13 @@ Cenário: DELETE Excluir Produto 200
     DELETE Endpoint /produtos
     Validar Status Code "200"
 
+Cenário: POST Criar Usuário com Massa Estática 201
+    [Tags]    postcriarusuarioestatico
+    Criar Sessão
+    Criar Usuário Estático Válido
+    Validar Status Code "201"
+
 #Sessão para criação de keywords personalizadas
 *** Keywords ***
 Criar Sessão
-    Create Session    serverest    https://serverest.dev
-
-Validar Status Code "${statuscode}"
-    Should Be True    ${response.status_code} == ${statuscode}
-
-Validar Quantidade "${quantidade}"
-    Should Be Equal    ${response.json()["quantidade"]}    ${quantidade}
-
-Validar Se Mensagem Contém "${palavra}"
-    Should Contain    ${response.json()["message"]}    ${palavra}
-
-Printar Conteúdo Response
-    Log to Console    Response: ${response.json()["usuarios"][0]["nome"]}
+    Create Session    serverest    http://localhost:3000/
