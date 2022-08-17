@@ -1,0 +1,26 @@
+{
+    "user_valido": {
+        "nome": "Alan Turing",
+        "email": "alanturing@gmail.com",
+        "password": "senha123",
+        "administrador": "true"
+    },
+    "user_repetido": {
+        "nome": "Fulano Repetido",
+        "email": "fulano@qa.com",
+        "password": "teste",
+        "administrador": "true"
+    },
+    "user_sem_senha": {
+        "nome": "Ava Lovelace",
+        "email": "avinha@qa.com",
+        "password": "",
+        "administrador": "true"
+    },
+    "user_sem_email": {
+        "nome": "Ella Hunt",
+        "email": "",
+        "password": "teste",
+        "administrador": "true"
+    }
+}

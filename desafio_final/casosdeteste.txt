@@ -1,19 +1,57 @@
 LOGIN
 
-Caso 1:
+Test Case 1:
 POST - Login com dados válidos
 - Utilizar dados válidos
 - Garantir que o usuário esteja cadastrado
 - Deve retornar status code 200
 - Deve retornar a mensagem "Login realizado com sucesso"
 
-Caso 2:
-POST - Login com dados inválidos
-- Utilizar dados inválidos
+Test Case 2:
+POST - Login com e-mail inválido
+- Utilizar e-mail inválido
+- Deve retornar status code 400
+- Deve retornar a mensagem "Email e/ou senha inválidos"
+
+Test Case 3:
+POST - Login com senha inválida
+- Utilizar senha inválida
 - Deve retornar status code 400
 - Deve retornar a mensagem "Email e/ou senha inválidos"
 
 USUÁRIOS
 
-Caso 3:
-GET - Listar
+Caso 4:
+GET - Listar Usuários
+- Deve retornar status code 200
+
+Caso 5:
+POST - Cadastrar Usuário válido
+- Utilizar dados válidos
+- Garantir que o usuário ainda não esteja cadastrado
+- Deve retornar status code 201
+- Deve retornar a mensagem "Cadastro realizado com sucesso"
+
+Caso 6:
+POST - Cadastrar Usuário Repetido
+- Utilizar email já cadastrado
+- Deve retornar status code 400
+- Deve retornar a mensagem "Este email já está sendo usado"
+
+Caso 7:
+GET - Buscar usuário por ID válido
+- Utilizar ID existente
+- Deve retornar status code 200
+- Deve retornar os dados do usuário
+
+Caso 8:
+GET - Buscar usuário por ID inexistente
+- Utilizar ID inexistente
+- Deve retornar status code 400
+- Deve retornar a mensagem "Usuário não encontrado"
+
+Caso 9:
+DELETE - Excluír usuário
+
+Caso 10:
+DELETE - Excluir usuário com carrinho

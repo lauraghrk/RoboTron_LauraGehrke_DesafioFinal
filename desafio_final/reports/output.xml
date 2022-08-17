@@ -1,68 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.8.2 on win32)" generated="20220811 14:27:46.077" rpa="false" schemaversion="3">
-<suite id="s1" name="Testes Api Serverest" source="C:\Users\Laura\Documents\Programa de Bolsas Compass.UOL\RoboTron_LauraGehrke_DesafioFinal\desafio_final\testes_api_serverest.robot">
-<test id="s1-t1" name="Cenário 1: POST Login com dados válidos" line="10">
-<kw name="Criar sessão">
+<robot generator="Robot 5.0.1 (Python 3.8.2 on win32)" generated="20220817 20:08:40.531" rpa="false" schemaversion="3">
+<suite id="s1" name="Base" source="C:\Users\Laura\Documents\Programa de Bolsas Compass.UOL\RoboTron_LauraGehrke_DesafioFinal\desafio_final\base.robot">
+<test id="s1-t1" name="TC 6: POST - Cadastrar usuário repetido 400" line="53">
+<kw name="Criar Sessão" library="commons">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
-<arg>https://serverest.dev</arg>
-<arg>{"email": "fulano@qa.com", "password": "teste"}</arg>
+<arg>http://localhost:3000/</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20220811 14:27:46.293" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={'email': 'fulano@qa.com', 'password': 'teste'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20220811 14:27:46.293" endtime="20220811 14:27:46.293"/>
+<msg timestamp="20220817 20:08:40.889" level="INFO">Creating Session using : alias=serverest, url=http://localhost:3000/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220817 20:08:40.889" endtime="20220817 20:08:40.889"/>
 </kw>
-<status status="PASS" starttime="20220811 14:27:46.293" endtime="20220811 14:27:46.293"/>
+<status status="PASS" starttime="20220817 20:08:40.888" endtime="20220817 20:08:40.890"/>
 </kw>
-<kw name="POST Endpoint /login">
+<kw name="Criar Usuário Repetido" library="usuarios_kw">
+<kw name="Importar JSON Estático" library="commons">
+<var>${json}</var>
+<arg>json_usuarios.json</arg>
+<kw name="Get File" library="OperatingSystem">
+<var>${arquivo}</var>
+<arg>${EXECDIR}/${nome_arquivo}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20220817 20:08:40.892" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\Laura\Documents\Programa de Bolsas Compass.UOL\RoboTron_LauraGehrke_DesafioFinal\desafio_final\json_usuarios.json"&gt;C:\Users\Laura\Documents\Programa de Bolsas Compass.UOL\RoboTron_LauraGehrke_DesafioFinal\desafio_final\json_usuarios.json&lt;/a&gt;'.</msg>
+<msg timestamp="20220817 20:08:40.894" level="INFO">${arquivo} = {
+    "user_valido": {
+        "nome": "Alan Turing",
+        "email": "alanturing@gmail.com",
+        "password": "senha123",
+        "administrador": "true"
+    },
+    "user_repetido": {
+        "no...</msg>
+<status status="PASS" starttime="20220817 20:08:40.891" endtime="20220817 20:08:40.894"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${data}</var>
+<arg>json.loads('''${arquivo}''')</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220817 20:08:40.896" level="INFO">${data} = {'user_valido': {'nome': 'Alan Turing', 'email': 'alanturing@gmail.com', 'password': 'senha123', 'administrador': 'true'}, 'user_repetido': {'nome': 'Fulano Repetido', 'email': 'fulano@qa.com', 'passw...</msg>
+<status status="PASS" starttime="20220817 20:08:40.894" endtime="20220817 20:08:40.896"/>
+</kw>
+<msg timestamp="20220817 20:08:40.897" level="INFO">${json} = {'user_valido': {'nome': 'Alan Turing', 'email': 'alanturing@gmail.com', 'password': 'senha123', 'administrador': 'true'}, 'user_repetido': {'nome': 'Fulano Repetido', 'email': 'fulano@qa.com', 'passw...</msg>
+<status status="PASS" starttime="20220817 20:08:40.891" endtime="20220817 20:08:40.897"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${payload}</var>
+<arg>${json["user_repetido"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220817 20:08:40.898" level="INFO">${payload} = {'nome': 'Fulano Repetido', 'email': 'fulano@qa.com', 'password': 'teste', 'administrador': 'true'}</msg>
+<status status="PASS" starttime="20220817 20:08:40.897" endtime="20220817 20:08:40.898"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${payload}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220817 20:08:40.899" level="INFO">${payload} = {'nome': 'Fulano Repetido', 'email': 'fulano@qa.com', 'password': 'teste', 'administrador': 'true'}</msg>
+<status status="PASS" starttime="20220817 20:08:40.898" endtime="20220817 20:08:40.899"/>
+</kw>
+<status status="PASS" starttime="20220817 20:08:40.890" endtime="20220817 20:08:40.899"/>
+</kw>
+<kw name="POST Endpoint /usuarios" library="usuarios_kw">
 <kw name="POST On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>serverest</arg>
-<arg>/login</arg>
+<arg>/usuarios</arg>
+<arg>json=&amp;{payload}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<msg timestamp="20220811 14:27:47.033" level="INFO">POST Request : url=https://serverest.dev/login 
- path_url=/login 
- headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'email': 'fulano@qa.com', 'password': 'teste', 'Content-Length': '0'} 
- body=None 
+<msg timestamp="20220817 20:08:40.961" level="INFO">POST Request : url=http://localhost:3000/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '99', 'Content-Type': 'application/json'} 
+ body=b'{"nome": "Fulano Repetido", "email": "fulano@qa.com", "password": "teste", "administrador": "true"}' 
  </msg>
-<msg timestamp="20220811 14:27:47.033" level="INFO">POST Response : url=https://serverest.dev/login 
+<msg timestamp="20220817 20:08:40.961" level="INFO">POST Response : url=http://localhost:3000/usuarios 
  status=400, reason=Bad Request 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '731f2ea6-3881-45f6-9aa7-cfd55972decf', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'f53b22f9ff64fdf3c616d60adeba46a5', 'Date': 'Thu, 11 Aug 2022 17:27:46 GMT', 'Server': 'Google Frontend', 'Content-Length': '84'} 
+ headers={'Access-Control-Allow-Origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '24c26b54-f90e-48f1-b111-7c6f2c106e5b', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '53', 'Date': 'Wed, 17 Aug 2022 23:08:40 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={
-    "email": "email é obrigatório",
-    "password": "password é obrigatório"
+    "message": "Este email já está sendo usado"
 } 
  </msg>
-<msg timestamp="20220811 14:27:47.033" level="INFO">c:\users\laura\appdata\local\programs\python\python38\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
-  warnings.warn(</msg>
-<msg timestamp="20220811 14:27:47.033" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/login</msg>
-<status status="FAIL" starttime="20220811 14:27:46.293" endtime="20220811 14:27:47.033"/>
+<msg timestamp="20220817 20:08:40.961" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220817 20:08:40.900" endtime="20220817 20:08:40.961"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Resposta: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220817 20:08:40.962" endtime="20220817 20:08:40.963"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" starttime="20220811 14:27:47.033" endtime="20220811 14:27:47.033"/>
+<msg timestamp="20220817 20:08:40.965" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220817 20:08:40.964" endtime="20220817 20:08:40.965"/>
 </kw>
-<status status="FAIL" starttime="20220811 14:27:46.293" endtime="20220811 14:27:47.033"/>
+<status status="PASS" starttime="20220817 20:08:40.899" endtime="20220817 20:08:40.965"/>
 </kw>
-<kw name="Validar status code &quot;200&quot;" sourcename="Validar status code &quot;${statuscode}&quot;">
-<status status="NOT RUN" starttime="20220811 14:27:47.049" endtime="20220811 14:27:47.049"/>
+<kw name="Validar Status Code &quot;400&quot;" library="commons" sourcename="Validar Status Code &quot;${status_code}&quot;">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${status_code}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20220817 20:08:40.967" endtime="20220817 20:08:40.973"/>
 </kw>
-<kw name="Validar mensagem &quot;Login realizado com sucesso&quot;" sourcename="Validar mensagem &quot;${message}&quot;">
-<status status="NOT RUN" starttime="20220811 14:27:47.049" endtime="20220811 14:27:47.049"/>
+<status status="PASS" starttime="20220817 20:08:40.966" endtime="20220817 20:08:40.973"/>
 </kw>
-<status status="FAIL" starttime="20220811 14:27:46.293" endtime="20220811 14:27:47.049">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/login</status>
+<kw name="Validar Mensagem Contém &quot;usado&quot;" library="commons" sourcename="Validar Mensagem Contém &quot;${palavra}&quot;">
+<kw name="Should Contain" library="BuiltIn">
+<arg>${response.json()["message"]}</arg>
+<arg>${palavra}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220817 20:08:40.974" endtime="20220817 20:08:40.975"/>
+</kw>
+<status status="PASS" starttime="20220817 20:08:40.973" endtime="20220817 20:08:40.975"/>
+</kw>
+<tag>tc6</tag>
+<status status="PASS" starttime="20220817 20:08:40.887" endtime="20220817 20:08:40.975"/>
 </test>
-<doc>Casos te teste da API ServeRest</doc>
-<status status="FAIL" starttime="20220811 14:27:46.092" endtime="20220811 14:27:47.049"/>
+<doc>Testes automatizados para a API ServeRest</doc>
+<status status="PASS" starttime="20220817 20:08:40.534" endtime="20220817 20:08:40.979"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">tc6</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Testes Api Serverest">Testes Api Serverest</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Base">Base</stat>
 </suite>
 </statistics>
 <errors>
