@@ -5,7 +5,7 @@ Resource        ./commons.robot
 *** Variables ***
 ${payload}
 ${id}
-${id_user}
+${id_guardado}
 
 *** Keywords ***
 GET Endpoint /usuarios
@@ -23,12 +23,12 @@ GET Endpoint /usuarios/{_id}
     Set Global Variable    ${response}
 
 DELETE Endpoint /usuarios
-    ${response}    DELETE On Session    serverest    /usuarios/${id_user}
+    ${response}    DELETE On Session    serverest    /usuarios/${id_guardado}
     Log To Console    Response:${response.content}
     Set Global Variable    ${response}
 
 PUT Endpoint /usuarios
-    ${response}    PUT On Session    serverest    /usuarios/${id_user}    data=&{payload}    expected_status=any
+    ${response}    PUT On Session    serverest    /usuarios/${id_guardado}    data=&{payload}    expected_status=any
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 
@@ -36,8 +36,3 @@ Selecionar Usuário "${val}"
     ${json}    Importar JSON Estático    json_usuarios.json
     ${payload}    Set Variable    ${json["${val}"]}
     Set Global Variable    ${payload}
-
-Guardar ID
-    ${id_user}    Set Variable    ${response.json()["_id"]}
-    Log To Console    ID salvo: ${id_user}
-    Set Global Variable    ${id_user}

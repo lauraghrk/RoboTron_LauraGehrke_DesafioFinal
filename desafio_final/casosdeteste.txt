@@ -24,6 +24,7 @@ USUÁRIOS
 Caso 4:
 GET - Listar Usuários
 - Deve retornar status code 200
+- Deve mostrar os dados dos usuários cadastrados
 
 Caso 5:
 POST - Cadastrar Usuário válido
@@ -87,8 +88,120 @@ PUT - Editar usuário usando email já cadastrado
 - Utilizar email já cadastrado
 - Deve retornar status code 400
 - Deve retornar a mensagem "Este email já está sendo usado"
-----------------------------------------
+
+PRODUTOS 
+
 Caso 15:
+GET - Listar produtos
+- Deve retornar status code 200
+- ceve mostrar os dados dos produtos cadastrado
 
 Caso 16:
+POST - Cadastrar produto
+- Utilizar token de autenticação válido
+- Garantir que o produto ainda não esteja cadastrado
+- Deve retornar status code 201
+- Deve retornar a mensagem "Cadastro realizado com sucesso"
 
+Caso 17:
+POST - Cadastrar produto já cadastrado
+- Utilizar token de autenticação válido
+- Utilizar produto com nome já cadastrado
+- Deve retornar status code 400
+- Deve retornar a mensagem "Já existe produto com esse nome"
+
+Caso 18:
+POST - Cadastrar produto sem autorização
+- Não utilizar token
+- Deve retornar status code 401
+- Deve retornar a mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
+
+Caso 19:
+POST - Cadastrar produto sem ser administrador
+- Utilizar token de usuário administrador=false
+- Deve retornar status code 403
+- Deve retornar a mensagem "Rota exclusiva para administradores"
+
+Caso 20:
+GET - Buscar produto por ID válido
+- Utilizar ID de produto existente
+- Deve retornar status code 200
+- Deve retornar os dados do produto
+
+Caso 21:
+GET - Buscar produto inexistente
+- Utilizar ID de produto inexistente
+- Deve retornar status code 400
+- Deve retornar a mensagem "Produto não encontrado"
+
+Caso 22:
+DELETE - Excluir produto
+- Utilizar token de autenticação válido
+- Cadastrar produto e guardar o ID
+- Excluir produt criado
+- Deve retornar status code 200
+- Deve retornar a mensagem "Registro excluído com sucesso | Nenhum registro excluído"
+
+Caso 23:
+DELETE - Excluir produto em carrinho
+- 
+
+Caso 24:
+DELETE - Excluir produto sem autorização
+- Não utilizar token de autenticação
+- Deve retornar status code 401
+- Deve retornar mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
+
+Caso 25:
+DELETE - Excluir produto sem ser administrador
+- Utilizar token de usuário administrador=false
+- Deve retornar status code 403
+- Deve retornar a mensagem "Rota exclusiva para administradores"
+
+Caso 26:
+PUT - Editar produto
+- Utilizar token de autenticação válido
+- Utilizar ID de produto existente
+- Utilizar dados válidos
+- Deve retornar status code 200
+- Deve retornar a mensagem "Registro alterado com sucesso"
+
+Caso 27:
+PUT - Editar produto inexistente
+- Utilizar token de autenticação válido
+- Utilizar ID de produto inexistente
+- Utilizar dados válidos
+- Deve retornar status code 201
+- Deve retornar a mensagem "Cadastro realizado com sucesso"
+
+Caso 28:
+PUT - Editar produto com nome já cadastrado
+- Utilizar token de autenticação válido
+- Utilizar ID de produto existente
+- Utilizar nome repetido
+- Deve retornar status code 400
+- Deve retornar a mensagem "Já existe produto com esse nome"
+
+Caso 29:
+PUT - Editar produto sem autorização
+- Não utilizar token de autenticação
+- Utilizar ID de produto existente
+- Utilizar dados válidos
+- Deve retornar status code 401
+- Deve retornar a mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
+
+Caso 30:
+PUT - Editar produto sem ser administrador
+- Utilizar token de usuário administrador=false
+- Utilizar ID de produto existente
+- Utilizar dados válidos
+- Deve retornar status code 403
+- Deve retornar a mensagem "Rota exclusiva para administradores"
+
+---------------------------------------
+CARRINHO
+
+Caso 31:
+GET - Listar carrinhos
+- Deve retornar status code 200
+- Deve mostrar os dados dos carrinhos cadastrados

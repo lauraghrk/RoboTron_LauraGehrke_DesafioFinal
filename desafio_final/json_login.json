@@ -14,5 +14,9 @@
     "user_sem_email": {
         "email": "",
         "password": "teste"
+    },
+    "user_nao_adm": {
+        "email": "rossg@gmail.com",
+        "password": "senha11"
     }
 }

@@ -15,3 +15,9 @@ Selecionar Login "${val}"
     ${json}    Importar JSON Estático    json_login.json
     ${payload}    Set Variable    ${json["${val}"]}
     Set Global Variable    ${payload}
+
+Fazer Login e Guardar Token "${login}"
+    Selecionar Login "${login}"
+    POST Endpoint /login
+    ${token}    Set Variable    ${response.json()["authorization"]}
+    Set Global Variable    ${token}

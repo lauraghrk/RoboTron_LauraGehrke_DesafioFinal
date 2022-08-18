@@ -26,5 +26,10 @@ Mostrar Conteúdo da Resposta
     Log To Console    Resposta: ${response.content}
 
 Seleciona ID "${id}"
-    ${id_user}    Set Variable    ${id}
-    Set Global Variable    ${id_user}
+    ${id_guardado}    Set Variable    ${id}
+    Set Global Variable    ${id_guardado}
+
+Guardar ID
+    ${id_guardado}    Set Variable    ${response.json()["_id"]}
+    Log To Console    ID salvo: ${id_guardado}
+    Set Global Variable    ${id_guardado}
