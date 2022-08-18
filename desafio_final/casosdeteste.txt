@@ -73,7 +73,7 @@ PUT - Editar usuário existente
 - Utilizar dados válidos
 - Deve retornar status code 200
 - Deve retornar a mensagem "Registro alterado com sucesso"
-----------------------------------------
+
 Caso 13:
 PUT - Editar usuário inexistente
 - Utilizar ID inexistente
@@ -87,3 +87,8 @@ PUT - Editar usuário usando email já cadastrado
 - Utilizar email já cadastrado
 - Deve retornar status code 400
 - Deve retornar a mensagem "Este email já está sendo usado"
+----------------------------------------
+Caso 15:
+
+Caso 16:
+

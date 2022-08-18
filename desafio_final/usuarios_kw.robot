@@ -37,9 +37,7 @@ Selecionar Usuário "${val}"
     ${payload}    Set Variable    ${json["${val}"]}
     Set Global Variable    ${payload}
 
-Criar Usuário e Guardar ID
-    Selecionar Usuário "user_teste"
-    POST Endpoint /usuarios
+Guardar ID
     ${id_user}    Set Variable    ${response.json()["_id"]}
     Log To Console    ID salvo: ${id_user}
     Set Global Variable    ${id_user}

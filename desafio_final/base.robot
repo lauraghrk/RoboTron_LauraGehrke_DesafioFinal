@@ -41,13 +41,15 @@ TC 4: GET - Listar usuários 200
     Validar Status Code "200"
     Mostrar Conteúdo da Resposta
 
-TC 5: POST - Cadastrar usuário 201  ###Excluir no final
+TC 5: POST - Cadastrar usuário 201
     [Tags]    tc5
     Criar Sessão
-    Selecionar Usuário "user_valido"
+    Selecionar Usuário "user_teste"
     POST Endpoint /usuarios
+    Guardar ID
     Validar Status Code "201"
     Validar Mensagem Contém "sucesso"
+    DELETE Endpoint /usuarios
 
 TC 6: POST - Cadastrar usuário repetido 400
     [Tags]    tc6
@@ -75,7 +77,9 @@ TC 8: GET - Buscar usuário inexistente 400
 TC 9: DELETE - Excluir usuário 200
     [Tags]    tc9
     Criar Sessão
-    Criar Usuário e Guardar ID
+    Selecionar Usuário "user_teste"
+    POST Endpoint /usuarios
+    Guardar ID
     DELETE Endpoint /usuarios
     Validar Status Code "200"
     Validar Mensagem Contém "sucesso"
@@ -101,14 +105,16 @@ TC 12: PUT - Editar usuário existente 200
     Validar Status Code "200"
     Validar Mensagem Contém "alterado"    
 
-TC 13: PUT - Editar usuário inexistente 201     ###excluir no final
+TC 13: PUT - Editar usuário inexistente 201
     [Tags]    tc13
     Criar Sessão
     Selecionar Usuário "user_novo"
     Seleciona ID "8novodxoxZzbjGp1"
     PUT Endpoint /usuarios
+    Guardar ID
     Validar Status Code "201"
     Validar Mensagem Contém "Cadastro"
+    DELETE Endpoint /usuarios
 
 TC 14: PUT - Editar usuário usando email já cadastrado 400
     [Tags]    tc14
@@ -118,3 +124,10 @@ TC 14: PUT - Editar usuário usando email já cadastrado 400
     PUT Endpoint /usuarios
     Validar Status Code "400"
     Validar Mensagem Contém "usado"
+
+
+DELETE
+    [Tags]    tcx
+    Criar Sessão
+    Seleciona ID "nh04fm6FTaNm5gxW"
+    DELETE Endpoint /usuarios
