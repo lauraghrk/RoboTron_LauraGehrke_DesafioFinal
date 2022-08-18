@@ -7,9 +7,9 @@
         "email": "email@inexistente.com",
         "password": "teste321"
     },
-    "user_sem_senha": {
+    "user_senha_errada": {
         "email": "fulano@qa.com",
-        "password": ""
+        "password": "senhaerrada"
     },
     "user_sem_email": {
         "email": "",

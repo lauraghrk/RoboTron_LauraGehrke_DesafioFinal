@@ -28,7 +28,7 @@ TC 2: POST - Login com e-mail inválido 400
 TC 3: POST - Login com senha inválida 400
     [Tags]    tc3
     Criar Sessão
-    Selecionar Usuário "user_sem_senha"
+    Selecionar Usuário "user_senha_errada"
     POST Endpoint /login
     Validar Status Code "400"
     Validar Mensagem Contém "inválidos"
@@ -60,22 +60,32 @@ TC 6: POST - Cadastrar usuário repetido 400
 TC 7: GET - Buscar usuário 200
     [Tags]    tc7
     Criar Sessão
+    Seleciona ID "0uxuPY0cbmQhpEz1"
     GET Endpoint /usuarios/{_id}
     Validar Status Code "200"
 
 TC 8: GET - Buscar usuário inexistente 400
     [Tags]    tc8
     Criar Sessão
+    Seleciona ID "0000000000000000"
     GET Endpoint /usuarios/{_id}
     Validar Status Code "400"
-
+    Validar Mensagem Contém "não encontrado"
+######
 TC 9: DELETE - Excluir usuário 200
     [Tags]    tc9
     Criar Sessão
     DELETE Endpoint /usuarios
     Validar Status Code "200"
 
-TC 10: DELETE - Excluir usuário com carrinho 400
+TC 10: DELETE - Excluir usuário inexistente 400
     [Tags]    tc10
 
-*** Keywords ***
+TC 11: DELETE - Excluir usuário com carrinho 400
+    [Tags]    tc11
+    
+TC 12: PUT - Editar usuário existente 200
+
+TC 13: PUT - Editar usuário inexistente 200
+
+TC 14: PUT - Editar usuário usando email já cadastrado 400

@@ -16,10 +16,6 @@ Importar JSON Estático
     ${data}    Evaluate    json.loads('''${arquivo}''')    json
     [Return]    ${data}
 
-Selecionar Usuário "${usuario}"
-    ${json}    Importar JSON Estático    json_login.json
-    ${user}    Set Variable    ${json["${usuario}"]}
-    Set Global Variable    ${user}
 Validar Status Code "${status_code}"
     Should Be True    ${response.status_code} == ${status_code}
 

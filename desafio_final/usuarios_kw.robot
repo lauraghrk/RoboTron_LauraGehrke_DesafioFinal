@@ -4,6 +4,7 @@ Resource        ./commons.robot
 
 *** Variables ***
 ${payload}
+${id}
 
 *** Keywords ***
 GET Endpoint /usuarios
@@ -16,7 +17,7 @@ POST Endpoint /usuarios
     Set Global Variable    ${response}
 
 GET Endpoint /usuarios/{_id}
-    ${response}    GET On Session    serverest    /usuarios/{_id}
+    ${response}    GET On Session    serverest    /usuarios/${id}    expected_status=any
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 
@@ -36,3 +37,7 @@ Criar Usuário Repetido
     ${json}    Importar JSON Estático    json_usuarios.json
     ${payload}    Set Variable    ${json["user_repetido"]}
     Set Global Variable    ${payload}
+
+Seleciona ID "${identificador}"
+    ${id}    Set Variable    ${identificador}
+    Set Global Variable    ${id}

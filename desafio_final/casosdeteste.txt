@@ -50,8 +50,29 @@ GET - Buscar usuário por ID inexistente
 - Deve retornar status code 400
 - Deve retornar a mensagem "Usuário não encontrado"
 
+----------------------------------------
 Caso 9:
 DELETE - Excluír usuário
+- Criar um usuário válido e guardar o ID
+- Excluir usuário criado
+- Deve retornar status code 200
+- Deve retornar a mensagem "Registro excluído com sucesso"
 
 Caso 10:
+DELETE - Excluir usuário inexistente
+- Utilizar id inexistente
+- Deve retornar status code 200
+- Deve retornar a mensagem "Nenhum registro excluído"
+
+Caso 11:
 DELETE - Excluir usuário com carrinho
+????????????
+
+Caso 12:
+PUT - Editar usuário existente
+
+Caso 13:
+PUT - Editar usuário inexistente
+
+Caso 14:
+PUT - Editar usuário usando email já cadastrado

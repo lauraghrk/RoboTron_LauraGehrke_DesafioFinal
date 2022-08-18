@@ -1,0 +1,2 @@
+TEST CASES 2 E 3
+- A documentação diz que é pra retornar status 400, porém retorna 401.
