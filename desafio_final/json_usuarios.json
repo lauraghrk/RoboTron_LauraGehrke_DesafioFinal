@@ -22,5 +22,11 @@
         "email": "",
         "password": "teste",
         "administrador": "true"
+    },
+    "user_teste": {
+        "nome": "Sky Brown",
+        "email": "sky@sk8.com",
+        "password": "skate",
+        "administrador": "true"
     }
 }

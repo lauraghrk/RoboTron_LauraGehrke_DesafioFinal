@@ -5,6 +5,7 @@ Resource        ./commons.robot
 *** Variables ***
 ${payload}
 ${id}
+${id_user}
 
 *** Keywords ***
 GET Endpoint /usuarios
@@ -22,22 +23,20 @@ GET Endpoint /usuarios/{_id}
     Set Global Variable    ${response}
 
 DELETE Endpoint /usuarios
-    ${response}    DELETE On Session    serverest    /usuarios/1XWPibby5ziaD1HP
+    ${response}    DELETE On Session    serverest    /usuarios/${id_user}
     Log To Console    Response:${response.content}
     Set Global Variable    ${response}
 
 PUT
 
-Criar Usuário Válido
+Selecionar Usuário "${val}"
     ${json}    Importar JSON Estático    json_usuarios.json
-    ${payload}    Set Variable    ${json["user_valido"]}
+    ${payload}    Set Variable    ${json["${val}"]}
     Set Global Variable    ${payload}
 
-Criar Usuário Repetido
-    ${json}    Importar JSON Estático    json_usuarios.json
-    ${payload}    Set Variable    ${json["user_repetido"]}
-    Set Global Variable    ${payload}
-
-Seleciona ID "${identificador}"
-    ${id}    Set Variable    ${identificador}
-    Set Global Variable    ${id}
+Criar Usuário e Guardar ID
+    Selecionar Usuário "user_teste"
+    POST Endpoint /usuarios
+    ${id_user}    Set Variable    ${response.json()["_id"]}
+    Log To Console    ID salvo: ${id_user}
+    Set Global Variable    ${id_user}

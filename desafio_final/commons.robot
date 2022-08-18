@@ -24,3 +24,7 @@ Validar Mensagem Contém "${palavra}"
 
 Mostrar Conteúdo da Resposta
     Log To Console    Resposta: ${response.content}
+
+Seleciona ID "${id}"
+    ${id_user}    Set Variable    ${id}
+    Set Global Variable    ${id_user}
