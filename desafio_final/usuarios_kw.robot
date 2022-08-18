@@ -27,7 +27,10 @@ DELETE Endpoint /usuarios
     Log To Console    Response:${response.content}
     Set Global Variable    ${response}
 
-PUT
+PUT Endpoint /usuarios
+    ${response}    PUT On Session    serverest    /usuarios/${id_user}    data=&{payload}    expected_status=any
+    Log To Console    Resposta: ${response.content}
+    Set Global Variable    ${response}
 
 Selecionar Usuário "${val}"
     ${json}    Importar JSON Estático    json_usuarios.json

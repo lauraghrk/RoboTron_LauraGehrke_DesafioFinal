@@ -56,7 +56,7 @@ DELETE - Excluír usuário
 - Excluir usuário criado
 - Deve retornar status code 200
 - Deve retornar a mensagem "Registro excluído com sucesso"
-----------------------------------------
+
 Caso 10:
 DELETE - Excluir usuário inexistente
 - Utilizar id inexistente
@@ -69,9 +69,21 @@ DELETE - Excluir usuário com carrinho
 
 Caso 12:
 PUT - Editar usuário existente
-
+- Utilizar ID existente
+- Utilizar dados válidos
+- Deve retornar status code 200
+- Deve retornar a mensagem "Registro alterado com sucesso"
+----------------------------------------
 Caso 13:
 PUT - Editar usuário inexistente
+- Utilizar ID inexistente
+- Utilizar dados válidos
+- Deve retornar status code 201
+- Deve retornar a mensagem "Cadastro realizado com sucesso"
 
 Caso 14:
 PUT - Editar usuário usando email já cadastrado
+- Utilizar ID existente
+- Utilizar email já cadastrado
+- Deve retornar status code 400
+- Deve retornar a mensagem "Este email já está sendo usado"

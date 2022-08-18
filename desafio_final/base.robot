@@ -93,7 +93,28 @@ TC 11: DELETE - Excluir usuário com carrinho 400
     #????????????????????????????????????????
 
 TC 12: PUT - Editar usuário existente 200
+    [Tags]    tc12
+    Criar Sessão
+    Selecionar Usuário "user_modificar"
+    Seleciona ID "8GokkdxoxZzbjGp1"
+    PUT Endpoint /usuarios
+    Validar Status Code "200"
+    Validar Mensagem Contém "alterado"    
 
-TC 13: PUT - Editar usuário inexistente 200
+TC 13: PUT - Editar usuário inexistente 201     ###excluir no final
+    [Tags]    tc13
+    Criar Sessão
+    Selecionar Usuário "user_novo"
+    Seleciona ID "8novodxoxZzbjGp1"
+    PUT Endpoint /usuarios
+    Validar Status Code "201"
+    Validar Mensagem Contém "Cadastro"
 
 TC 14: PUT - Editar usuário usando email já cadastrado 400
+    [Tags]    tc14
+    Criar Sessão
+    Selecionar Usuário "user_repetido"
+    Seleciona ID "8GokkdxoxZzbjGp1"
+    PUT Endpoint /usuarios
+    Validar Status Code "400"
+    Validar Mensagem Contém "usado"

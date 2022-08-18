@@ -28,5 +28,17 @@
         "email": "sky@sk8.com",
         "password": "skate",
         "administrador": "true"
+    },
+    "user_modificar": {
+        "nome": "Jose Silva",
+        "email": "josesilva@gmail.com",
+        "password": "senhasenha",
+        "administrador": "true"
+    },
+    "user_novo": {
+        "nome": "Maria Santos",
+        "email": "mariasantos@gmail.com",
+        "password": "senha00",
+        "administrador": "true"
     }
 }
