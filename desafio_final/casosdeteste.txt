@@ -144,7 +144,10 @@ DELETE - Excluir produto
 
 Caso 23:
 DELETE - Excluir produto em carrinho
-- 
+- Utilizar token de autenticação válido
+- Garantir que o produto ainda não esteja cadastrado
+- Deve retornar status code 201
+- Deve retornar a mensagem "Cadastro realizado com sucesso"
 
 Caso 24:
 DELETE - Excluir produto sem autorização
@@ -198,7 +201,7 @@ PUT - Editar produto sem ser administrador
 - Deve retornar status code 403
 - Deve retornar a mensagem "Rota exclusiva para administradores"
 
----------------------------------------
+
 CARRINHO
 
 Caso 31:
@@ -208,12 +211,25 @@ GET - Listar carrinhos
 
 Caso 32:
 POST - Cadastrar carrinho
+- Utilizar token de autenticação válido
+- Utilizar dados válidos de carrinhos
+- Deve retornar status code 201
+- Deve retornar a mensagem "Cadastro realizado com sucesso"
+- Deve retornar o id do carrinho cadastrado
 
 Caso 33:
 POST - Cadastrar carrinho com erro
+- Utilizar token de autenticação válido
+- Utilizar dados válidos de carrinhos
+- Deve retornar status code 400
+- Deve retornar a mensagem "Não é permitido possuir produto duplicado | Não é permitido ter mais de 1 carrinho | Produto não encontrado | Produto não possui quantidade suficiente"
 
 Caso 34:
 POST - Cadastrar carrinho sem autorização
+- Não utilizar token de autenticação
+- Utilizar dados válidos de carrinhos
+- Deve retornar status code 401
+- Deve retornar a mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
 
 Caso 35:
 GET - Buscar carrinho por ID
@@ -226,7 +242,7 @@ GET - Buscar carrinho inexistente
 - Utilizar ID de produto inexistente
 - Deve retornar status code 400
 - Deve retornar a mensagem "Carrinho não encontrado"
-
+---------------------------------------
 Caso 37:
 DELETE - Excluir carrinho (concluir compra)
 

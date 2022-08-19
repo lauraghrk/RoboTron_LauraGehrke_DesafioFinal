@@ -282,14 +282,32 @@ TC 32: Cadastrar carrinho 201
     [Tags]    tc32
     Criar Sessão
     Fazer Login e Guardar Token "user_valido"
-    Selecionar Carrinho ""
+    Criar carrinho
     POST Endpoint /carrinhos
+    Guardar ID
     Validar Status Code "201"
     Validar Mensagem Contém "sucesso"
+    DELETE Endpoint /carrinhos/cancelar-compra
 
 TC 33: Cadastrar carrinho com erro 400
+    [Tags]    tc33
+    Criar Sessão
+    Fazer Login e Guardar Token "user_valido"
+    Criar carrinho
+    POST Endpoint /carrinhos
+    Guardar ID
+    POST Endpoint /carrinhos
+    Validar Status Code "400"
+    Validar Mensagem Contém "Não é permitido"
+    DELETE Endpoint /carrinhos/cancelar-compra
 
 TC 34: Cadastrar carrinho sem autorização 401
+    [Tags]    tc34
+    Criar Sessão
+    Criar carrinho
+    POST Endpoint /carrinhos
+    Validar Status Code "401"
+    Validar Mensagem Contém "inválido"
 
 TC 35: Buscar carrinho por ID 200
     [Tags]    tc35
@@ -307,12 +325,24 @@ TC 36: Buscar carrinho inexistente 400
     Validar Mensagem Contém "não encontrado"
 
 TC 37: Excluir carrinho - concluir compra
+    [Tags]    tc37
 
 TC 38: Excluir carrinho sem autorização
+    [Tags]    tc38
 
 TC 39: Excluir carrinho e retornar produtos para estoque - cancelar compra
+    [Tags]    tc39
+    Criar Sessão
+    Fazer Login e Guardar Token "user_valido"
+    DELETE Endpoint /carrinhos/cancelar-compra
+    Validar Status Code "200"
 
 TC 40: Excluir carrinho e retornar produtos para estoque sem autorização
+    [Tags]    tc40
+    Criar Sessão
+    DELETE Endpoint /carrinhos/cancelar-compra
+    Validar Status Code "401"
+    Validar Mensagem Contém "inválido"
 
 DELETE
     [Tags]    tcx

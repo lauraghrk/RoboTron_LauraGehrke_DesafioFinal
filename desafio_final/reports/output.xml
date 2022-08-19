@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.8.2 on win32)" generated="20220818 20:58:51.514" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.8.2 on win32)" generated="20220818 23:06:54.381" rpa="false" schemaversion="3">
 <suite id="s1" name="Base" source="C:\Users\Laura\Documents\Programa de Bolsas Compass.UOL\RoboTron_LauraGehrke_DesafioFinal\desafio_final\base.robot">
-<test id="s1-t1" name="TC 36: Buscar carrinho inexistente 400" line="294">
+<test id="s1-t1" name="TC 36: Buscar carrinho inexistente 400" line="319">
 <kw name="Criar Sessão" library="commons">
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
 <arg>http://localhost:3000/</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20220818 20:58:51.848" level="INFO">Creating Session using : alias=serverest, url=http://localhost:3000/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20220818 20:58:51.847" endtime="20220818 20:58:51.848"/>
+<msg timestamp="20220818 23:06:54.636" level="INFO">Creating Session using : alias=serverest, url=http://localhost:3000/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220818 23:06:54.636" endtime="20220818 23:06:54.636"/>
 </kw>
-<status status="PASS" starttime="20220818 20:58:51.847" endtime="20220818 20:58:51.848"/>
+<status status="PASS" starttime="20220818 23:06:54.635" endtime="20220818 23:06:54.637"/>
 </kw>
 <kw name="Seleciona ID &quot;0000000000000000&quot;" library="commons" sourcename="Seleciona ID &quot;${id}&quot;">
 <kw name="Set Variable" library="BuiltIn">
 <var>${id_guardado}</var>
 <arg>${id}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20220818 20:58:51.851" level="INFO">${id_guardado} = 0000000000000000</msg>
-<status status="PASS" starttime="20220818 20:58:51.850" endtime="20220818 20:58:51.851"/>
+<msg timestamp="20220818 23:06:54.638" level="INFO">${id_guardado} = 0000000000000000</msg>
+<status status="PASS" starttime="20220818 23:06:54.638" endtime="20220818 23:06:54.638"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${id_guardado}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220818 20:58:51.852" level="INFO">${id_guardado} = 0000000000000000</msg>
-<status status="PASS" starttime="20220818 20:58:51.851" endtime="20220818 20:58:51.852"/>
+<msg timestamp="20220818 23:06:54.639" level="INFO">${id_guardado} = 0000000000000000</msg>
+<status status="PASS" starttime="20220818 23:06:54.638" endtime="20220818 23:06:54.639"/>
 </kw>
-<status status="PASS" starttime="20220818 20:58:51.849" endtime="20220818 20:58:51.852"/>
+<status status="PASS" starttime="20220818 23:06:54.637" endtime="20220818 23:06:54.639"/>
 </kw>
 <kw name="GET Endpoint /carrinhos/" library="carrinhos_kw">
 <kw name="GET On Session" library="RequestsLibrary">
@@ -35,56 +35,56 @@
 <arg>/carrinhos/${id_guardado}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20220818 20:58:51.896" level="INFO">GET Request : url=http://localhost:3000/carrinhos/0000000000000000 
+<msg timestamp="20220818 23:06:54.656" level="INFO">GET Request : url=http://localhost:3000/carrinhos/0000000000000000 
  path_url=/carrinhos/0000000000000000 
  headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20220818 20:58:51.896" level="INFO">GET Response : url=http://localhost:3000/carrinhos/0000000000000000 
+<msg timestamp="20220818 23:06:54.657" level="INFO">GET Response : url=http://localhost:3000/carrinhos/0000000000000000 
  status=400, reason=Bad Request 
- headers={'Access-Control-Allow-Origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'bfce9576-1441-4050-b9d5-c35d3c798e01', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '45', 'Date': 'Thu, 18 Aug 2022 23:58:51 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'Access-Control-Allow-Origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'eec52068-3141-4f13-b70c-233128ed4aaf', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '45', 'Date': 'Fri, 19 Aug 2022 02:06:54 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
  body={
     "message": "Carrinho não encontrado"
 } 
  </msg>
-<msg timestamp="20220818 20:58:51.896" level="INFO">${response} = &lt;Response [400]&gt;</msg>
-<status status="PASS" starttime="20220818 20:58:51.854" endtime="20220818 20:58:51.896"/>
+<msg timestamp="20220818 23:06:54.657" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220818 23:06:54.640" endtime="20220818 23:06:54.657"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220818 20:58:51.896" endtime="20220818 20:58:51.898"/>
+<status status="PASS" starttime="20220818 23:06:54.657" endtime="20220818 23:06:54.658"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20220818 20:58:51.900" level="INFO">${response} = &lt;Response [400]&gt;</msg>
-<status status="PASS" starttime="20220818 20:58:51.899" endtime="20220818 20:58:51.900"/>
+<msg timestamp="20220818 23:06:54.659" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220818 23:06:54.659" endtime="20220818 23:06:54.659"/>
 </kw>
-<status status="PASS" starttime="20220818 20:58:51.853" endtime="20220818 20:58:51.900"/>
+<status status="PASS" starttime="20220818 23:06:54.640" endtime="20220818 23:06:54.660"/>
 </kw>
 <kw name="Validar Status Code &quot;400&quot;" library="commons" sourcename="Validar Status Code &quot;${status_code}&quot;">
 <kw name="Should Be True" library="BuiltIn">
 <arg>${response.status_code} == ${status_code}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" starttime="20220818 20:58:51.901" endtime="20220818 20:58:51.903"/>
+<status status="PASS" starttime="20220818 23:06:54.661" endtime="20220818 23:06:54.664"/>
 </kw>
-<status status="PASS" starttime="20220818 20:58:51.901" endtime="20220818 20:58:51.903"/>
+<status status="PASS" starttime="20220818 23:06:54.660" endtime="20220818 23:06:54.665"/>
 </kw>
 <kw name="Validar Mensagem Contém &quot;não encontrado&quot;" library="commons" sourcename="Validar Mensagem Contém &quot;${palavra}&quot;">
 <kw name="Should Contain" library="BuiltIn">
 <arg>${response.json()["message"]}</arg>
 <arg>${palavra}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20220818 20:58:51.906" endtime="20220818 20:58:51.907"/>
+<status status="PASS" starttime="20220818 23:06:54.666" endtime="20220818 23:06:54.668"/>
 </kw>
-<status status="PASS" starttime="20220818 20:58:51.904" endtime="20220818 20:58:51.907"/>
+<status status="PASS" starttime="20220818 23:06:54.666" endtime="20220818 23:06:54.668"/>
 </kw>
 <tag>tc36</tag>
-<status status="PASS" starttime="20220818 20:58:51.845" endtime="20220818 20:58:51.908"/>
+<status status="PASS" starttime="20220818 23:06:54.634" endtime="20220818 23:06:54.668"/>
 </test>
 <doc>Testes automatizados para a API ServeRest</doc>
-<status status="PASS" starttime="20220818 20:58:51.518" endtime="20220818 20:58:51.910"/>
+<status status="PASS" starttime="20220818 23:06:54.386" endtime="20220818 23:06:54.671"/>
 </suite>
 <statistics>
 <total>
