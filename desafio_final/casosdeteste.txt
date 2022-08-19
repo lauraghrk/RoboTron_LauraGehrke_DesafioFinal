@@ -66,9 +66,10 @@ DELETE - Excluir usuário inexistente
 
 Caso 11:
 DELETE - Excluir usuário com carrinho
-- Utilizar token de autenticação válido
-- Verificar se usuário tem carrinho
-- 
+- Fazer login com usuário com carrinho cadastrado
+- Deve retornar status code 400
+- Deve retornar a mensagem "Não é permitido excluir usuário com carrinho cadastrado"
+- Deve retornar o id do carrinho que o usuário tem
 
 Caso 12:
 PUT - Editar usuário existente
@@ -146,10 +147,10 @@ DELETE - Excluir produto
 
 Caso 23:
 DELETE - Excluir produto em carrinho
-- Utilizar token de autenticação válido
-- 
-- Deve retornar status code 
-- Deve retornar a mensagem ""
+- Fazer login com usuário com carrinho cadastrado
+- Deve retornar status code 400
+- Deve retornar a mensagem "Não é permitido excluir produto que faz parte de carrinho"
+- Deve retornar o id dos carrinhos que contém o produto
 
 Caso 24:
 DELETE - Excluir produto sem autorização

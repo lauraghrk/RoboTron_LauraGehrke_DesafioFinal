@@ -23,7 +23,7 @@ GET Endpoint /usuarios/{_id}
     Set Global Variable    ${response}
 
 DELETE Endpoint /usuarios
-    ${response}    DELETE On Session    serverest    /usuarios/${id_guardado}
+    ${response}    DELETE On Session    serverest    /usuarios/${id_guardado}    expected_status=any
     Log To Console    Response:${response.content}
     Set Global Variable    ${response}
 

@@ -96,7 +96,12 @@ TC 10: DELETE - Excluir usuário inexistente 200
 
 TC 11: DELETE - Excluir usuário com carrinho 400
     [Tags]    tc11
-    #????????????????????????????????????????
+    Criar Sessão
+    Fazer Login e Guardar Token "user_valido"
+    Seleciona ID "s8s7BsADfFgFOZqP"
+    DELETE Endpoint /usuarios
+    Validar Status Code "400"
+    Validar Mensagem Contém "Não é permitido"
 
 TC 12: PUT - Editar usuário existente 200
     [Tags]    tc12
@@ -200,7 +205,12 @@ TC 22: Excluir Produto 200
 
 TC 23: Excluir produto em carrinho 400
     [Tags]    tc23
-    #??????????????????????????
+    Criar Sessão
+    Fazer Login e Guardar Token "user_valido"
+    Seleciona ID "K6leHdftCeOJj8BJ"
+    DELETE Endpoint /produtos
+    Validar Status Code "400"
+    Validar Mensagem Contém "faz parte de carrinho"
 
 TC 24: Excluir produto sem autorização 401
     [Tags]    tc24
