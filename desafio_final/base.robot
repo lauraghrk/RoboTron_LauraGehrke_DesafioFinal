@@ -5,7 +5,7 @@ Resource        ./commons.robot
 Resource        ./login_kw.robot
 Resource        ./usuarios_kw.robot
 Resource        ./produtos_wk.robot
-Resource        ./carrinho_kw.robot
+Resource        ./carrinhos_kw.robot
 
 *** Variables ***
 
@@ -270,8 +270,49 @@ TC 30: Editar produto sem ser administrador 403
     Validar Status Code "403"
     Validar Mensagem Contém "exclusiva"
 
-#Endpoint /carrinho
+#Endpoint /carrinhos
 TC 31: Listar carrinhos 200
+    [Tags]    tc31
+    Criar Sessão
+    GET Endpoint /carrinhos
+    Validar Status Code "200"
+    Mostrar Conteúdo da Resposta
+
+TC 32: Cadastrar carrinho 201
+    [Tags]    tc32
+    Criar Sessão
+    Fazer Login e Guardar Token "user_valido"
+    Selecionar Carrinho ""
+    POST Endpoint /carrinhos
+    Validar Status Code "201"
+    Validar Mensagem Contém "sucesso"
+
+TC 33: Cadastrar carrinho com erro 400
+
+TC 34: Cadastrar carrinho sem autorização 401
+
+TC 35: Buscar carrinho por ID 200
+    [Tags]    tc35
+    Criar Sessão
+    Seleciona ID "qbMqntef4iTOwWfg"
+    GET Endpoint /carrinhos/
+    Validar Status Code "200"
+
+TC 36: Buscar carrinho inexistente 400
+    [Tags]    tc36
+    Criar Sessão
+    Seleciona ID "0000000000000000"
+    GET Endpoint /carrinhos/
+    Validar Status Code "400"
+    Validar Mensagem Contém "não encontrado"
+
+TC 37: Excluir carrinho - concluir compra
+
+TC 38: Excluir carrinho sem autorização
+
+TC 39: Excluir carrinho e retornar produtos para estoque - cancelar compra
+
+TC 40: Excluir carrinho e retornar produtos para estoque sem autorização
 
 DELETE
     [Tags]    tcx

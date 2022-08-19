@@ -205,3 +205,36 @@ Caso 31:
 GET - Listar carrinhos
 - Deve retornar status code 200
 - Deve mostrar os dados dos carrinhos cadastrados
+
+Caso 32:
+POST - Cadastrar carrinho
+
+Caso 33:
+POST - Cadastrar carrinho com erro
+
+Caso 34:
+POST - Cadastrar carrinho sem autorização
+
+Caso 35:
+GET - Buscar carrinho por ID
+- Utilizar ID de carrinho existente
+- Deve retornar status code 200
+- Deve retornar os dados do carrinho
+
+Caso 36:
+GET - Buscar carrinho inexistente
+- Utilizar ID de produto inexistente
+- Deve retornar status code 400
+- Deve retornar a mensagem "Carrinho não encontrado"
+
+Caso 37:
+DELETE - Excluir carrinho (concluir compra)
+
+Caso 38:
+DELETE - Excluir carrinho sem autorização (concluir compra)
+
+Caso 39:
+DELETE - Excluir carrinho e retornar produtos para estoque (cancelar compra)
+
+Caso 40:
+DELETE - Excluir carrinho e retornar produtos para estoque sem autorização (cancelar compra)
