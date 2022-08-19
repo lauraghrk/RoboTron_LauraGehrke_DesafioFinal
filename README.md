@@ -18,5 +18,5 @@ Os códigos desenvolvidos fazem parte do programa de bolsas da Compass.Uol, tril
 
 ## Créditos :handshake:
 **Autora:** [Laura Gehrke](https://github.com/lauraghrk).  
-**Colaboração:** Manoella, Mari, Paulo e Pedro (turma do programa de bolsas). Matheus (evangelista da Compass).  
+**Colaboração:** Manoella, Mari, Paulo e Pedro (turma do programa de bolsas). Matheus e Demétrio (evangelistas da Compass).  
 **Referências:** os links das referências online estão indicados dentro dos arquivos de código.
