@@ -46,5 +46,11 @@
         "email": "rossg@gmail.com",
         "password": "senha11",
         "administrador": "false"
+    },
+    "user_com_carrinho": {
+        "nome": "Monica Geller",
+        "email": "monicag@gmail.com",
+        "password": "senha22",
+        "administrador": "true"
     }
 }

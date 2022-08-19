@@ -29,6 +29,12 @@ DELETE Endpoint /carrinhos/cancelar-compra
     Log To Console    Response:${response.content}
     Set Global Variable    ${response}
 
+DELETE Endpoint /carrinhos/concluir-compra
+    &{header}    Create Dictionary    Authorization=${token}
+    ${response}    DELETE On Session    serverest    /carrinhos/concluir-compra/    expected_status=any    headers=&{header}
+    Log To Console    Response:${response.content}
+    Set Global Variable    ${response}
+
 Criar carrinho
     ${json}    Importar JSON Estático    json_carrinhos.json
     ${payload}    Set Variable    ${json}

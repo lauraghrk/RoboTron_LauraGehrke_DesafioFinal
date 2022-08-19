@@ -18,5 +18,9 @@
     "user_nao_adm": {
         "email": "rossg@gmail.com",
         "password": "senha11"
+    },
+    "user_com_carrinho": {
+        "email": "monicag@gmail.com",
+        "password": "senha22"
     }
 }

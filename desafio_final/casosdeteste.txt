@@ -66,7 +66,9 @@ DELETE - Excluir usuário inexistente
 
 Caso 11:
 DELETE - Excluir usuário com carrinho
-????????????
+- Utilizar token de autenticação válido
+- Verificar se usuário tem carrinho
+- 
 
 Caso 12:
 PUT - Editar usuário existente
@@ -138,16 +140,16 @@ Caso 22:
 DELETE - Excluir produto
 - Utilizar token de autenticação válido
 - Cadastrar produto e guardar o ID
-- Excluir produt criado
+- Excluir produto criado
 - Deve retornar status code 200
 - Deve retornar a mensagem "Registro excluído com sucesso | Nenhum registro excluído"
 
 Caso 23:
 DELETE - Excluir produto em carrinho
 - Utilizar token de autenticação válido
-- Garantir que o produto ainda não esteja cadastrado
-- Deve retornar status code 201
-- Deve retornar a mensagem "Cadastro realizado com sucesso"
+- 
+- Deve retornar status code 
+- Deve retornar a mensagem ""
 
 Caso 24:
 DELETE - Excluir produto sem autorização
@@ -242,15 +244,31 @@ GET - Buscar carrinho inexistente
 - Utilizar ID de produto inexistente
 - Deve retornar status code 400
 - Deve retornar a mensagem "Carrinho não encontrado"
----------------------------------------
+
 Caso 37:
 DELETE - Excluir carrinho (concluir compra)
+- Utilizar token de autenticação válido
+- Cadastrar carrinho e guardar o ID
+- Excluir carrinho criado
+- Deve retornar status code 200
+- Deve retornar a mensagem "Registro excluído com sucesso | Não foi encontrado carrinho para esse usuário"
 
 Caso 38:
 DELETE - Excluir carrinho sem autorização (concluir compra)
+- Não utilizar token de autenticação
+- Deve retornar status code 401
+- Deve retornar a mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
 
 Caso 39:
 DELETE - Excluir carrinho e retornar produtos para estoque (cancelar compra)
+- Utilizar token de autenticação válido
+- Cadastrar carrinho e guardar o ID
+- Excluir carrinho criado
+- Deve retornar status code 200
+- Deve retornar a mensagem "Registro excluído com sucesso | Não foi encontrado carrinho para esse usuário"
 
 Caso 40:
 DELETE - Excluir carrinho e retornar produtos para estoque sem autorização (cancelar compra)
+- Não utilizar token de autenticação
+- Deve retornar status code 401
+- Deve retornar a mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
