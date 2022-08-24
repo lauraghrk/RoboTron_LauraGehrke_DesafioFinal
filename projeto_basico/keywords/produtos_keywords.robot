@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation        Keywords e variáveis para ações do endpoint /produtos
 Library            RequestsLibrary
+Resource        ../support/base.robot
 
 *** Variables ***
 ${token_auth}

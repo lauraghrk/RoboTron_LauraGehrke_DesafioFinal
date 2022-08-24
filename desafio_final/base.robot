@@ -368,6 +368,6 @@ TC 40: Excluir carrinho e retornar produtos para estoque sem autorização
 DELETE
     [Tags]    tcx
     Criar Sessão
-    Fazer Login e Guardar Token "user_valido"
-    Seleciona ID "Qdfxvy92kc2Y4v7b"
-    DELETE Endpoint /produtos
+    #Fazer Login e Guardar Token "user_valido"
+    Seleciona ID "i3b4g1SXR97P3TGc"
+    DELETE Endpoint /usuarios

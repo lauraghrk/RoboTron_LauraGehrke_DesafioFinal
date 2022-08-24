@@ -2,6 +2,8 @@
 Documentation        Keywords e variáveis para ações do endpoint /login
 Library            RequestsLibrary
 
+Resource        ../support/base.robot
+
 *** Variables ***
 ${email_login}        testeteste@gmail.com
 ${password_login}        senha123
