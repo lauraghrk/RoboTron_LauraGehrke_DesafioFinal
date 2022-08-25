@@ -1,9 +1,0 @@
-PUT - Editar usuário com o id "0uxuPY0cbmQhpEz1"
-- Utilizar dados válidos
-- Ter certeza que o usuário já está cadastrado
-- Retorna status 200.
-
-DELETE - Excluir usuário com id "0uxuPY0cbmQhpEz1"
-- Validar que o usuário existe
-- O usuário não deve ter carrinho cadastrado
-- Retorna status 200.

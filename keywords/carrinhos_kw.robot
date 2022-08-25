@@ -1,6 +1,6 @@
 *** Settings ***
-Documentation    Keywords para o endpoint /carrinho
-Resource        ./commons.robot
+Documentation    Keywords para o endpoint /carrinhos
+Resource        ../support/base.robot
 
 *** Variables ***
 ${id_guardado}

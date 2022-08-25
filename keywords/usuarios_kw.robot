@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation    Keywords para o endpoint /usuarios
-Resource        ./commons.robot
+Resource        ../support/base.robot
 
 *** Variables ***
 ${payload}
