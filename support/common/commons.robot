@@ -2,17 +2,15 @@
 Documentation    Keywords gerais
 Library        RequestsLibrary
 Library        OperatingSystem
-
-*** Variables ***
-${response}
+Resource        ../variables/variables.robot
 
 *** Keywords ***
 Criar Sessão
-    Create Session    serverest    http://localhost:3000/
+    Create Session    serverest    ${base_uri}
 
 Importar JSON Estático
     [Arguments]    ${nome_arquivo}
-    ${arquivo}    Get File    ${EXECDIR}/${nome_arquivo}
+    ${arquivo}    Get File    ${EXECDIR}/support/fixture/${nome_arquivo}
     ${data}    Evaluate    json.loads('''${arquivo}''')    json
     [Return]    ${data}
 

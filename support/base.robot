@@ -6,3 +6,4 @@ Library        Collections
 Library        OperatingSystem
 
 Resource        ./common/commons.robot
+Resource        ./fixture/dynamics.robot

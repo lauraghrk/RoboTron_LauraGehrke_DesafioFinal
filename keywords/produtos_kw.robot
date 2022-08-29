@@ -2,12 +2,6 @@
 Documentation    Keywords para o endpoint /produtos
 Resource        ../support/base.robot
 
-*** Variables ***
-${token}
-&{payload}
-${id_guardado}
-${id}
-
 *** Keywords ***
 GET Endpoint /produtos
     ${response}    GET On Session    serverest    /produtos
@@ -36,7 +30,6 @@ PUT Endpoint /produtos
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 
-Selecionar Produto "${item}"
-    ${json}    Importar JSON Estático    json_produtos.json
-    ${payload}    Set Variable    ${json["${item}"]}
+Selecionar Produto Repetido
+    ${payload}    Create Dictionary    nome=Samsung 60 polegadas    preco=5000    descricao=TV samsung    quantidade=127
     Set Global Variable    ${payload}

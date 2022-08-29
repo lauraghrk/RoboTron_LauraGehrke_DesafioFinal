@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    Testes para o endpoint /produtos
 Resource        ../keywords/produtos_kw.robot
+Resource        ../keywords/login_kw.robot
 
 Suite Setup    Criar Sessão
 
@@ -13,8 +14,10 @@ TC 15: GET - Listar produtos 200
 
 TC 16: POST - Cadastrar produto 201
     [Tags]    tc16
-    Fazer Login e Guardar Token "user_valido"
-    Selecionar Produto "teclado"
+    Selecionar Login "user_valido"
+    POST Endpoint /login
+    Guardar Token
+    Criar Dados Produto
     POST Endpoint /produtos
     Guardar ID
     Validar Status Code "201"
@@ -23,23 +26,27 @@ TC 16: POST - Cadastrar produto 201
 
 TC 17: POST - Cadastrar produto com nome já cadastrado 400
     [Tags]    tc17
-    Fazer Login e Guardar Token "user_valido"
-    Selecionar Produto "monitor_repetido"
+    Selecionar Login "user_valido"
+    POST Endpoint /login
+    Guardar Token
+    Selecionar Produto Repetido
     POST Endpoint /produtos
     Validar Status Code "400"
     Validar Mensagem Contém "Já existe"
 
 TC 18: POST - Cadastrar produto sem login 401
     [Tags]    tc18
-    Selecionar Produto "teclado"
+    Criar Dados Produto
     POST Endpoint /produtos
     Validar Status Code "401"
     Validar Mensagem Contém "ausente"
 
 TC 19: POST - Cadastrar produto sem ser administrador 403
     [Tags]    tc19
-    Fazer Login e Guardar Token "user_nao_adm"
-    Selecionar Produto "teclado"
+    Selecionar Login "user_nao_adm"
+    POST Endpoint /login
+    Guardar Token
+    Criar Dados Produto
     POST Endpoint /produtos
     Validar Status Code "403"
     Validar Mensagem Contém "exclusiva"
@@ -59,17 +66,21 @@ TC 21: Buscar produto inexistente 400
 
 TC 22: Excluir Produto 200
     [Tags]    tc22
-    Fazer Login e Guardar Token "user_valido"
-    Selecionar Produto "teclado"
+    Selecionar Login "user_valido"
+    POST Endpoint /login
+    Guardar Token
+    Criar Dados Produto
     POST Endpoint /produtos
     Guardar ID
     DELETE Endpoint /produtos
     Validar Status Code "200"
     Validar Mensagem Contém "sucesso"
 
-TC 23: Excluir produto em carrinho 400
+TC 23: Excluir produto com carrinho 400
     [Tags]    tc23
-    Fazer Login e Guardar Token "user_valido"
+    Selecionar Login "user_valido"
+    POST Endpoint /login
+    Guardar Token
     Seleciona ID "K6leHdftCeOJj8BJ"
     DELETE Endpoint /produtos
     Validar Status Code "400"
@@ -84,7 +95,9 @@ TC 24: Excluir produto sem autorização 401
 
 TC 25: Excluir produto sem ser administrador 403
     [Tags]    tc25
-    Fazer Login e Guardar Token "user_nao_adm"
+    Selecionar Login "user_nao_adm"
+    POST Endpoint /login
+    Guardar Token
     Seleciona ID "K6leHdftCeOJj8BJ"
     DELETE Endpoint /produtos
     Validar Status Code "403"
@@ -92,17 +105,24 @@ TC 25: Excluir produto sem ser administrador 403
 
 TC 26: Editar produto 200
     [Tags]    tc26
-    Fazer Login e Guardar Token "user_valido"
-    Selecionar Produto "tv_alterar"
-    Seleciona ID "BeeJh5lz3k6kSIzA"
+    Selecionar Login "user_valido"
+    POST Endpoint /login
+    Guardar Token
+    Criar Dados Produto
+    POST Endpoint /produtos
+    Guardar ID
+    Criar Dados Produto
     PUT Endpoint /produtos
     Validar Status Code "200"
     Validar Mensagem Contém "alterado"
+    DELETE Endpoint /produtos
 
 TC 27: Editar produto inexistente 201
     [Tags]    tc27
-    Fazer Login e Guardar Token "user_valido"
-    Selecionar Produto "produto_novo"
+    Selecionar Login "user_valido"
+    POST Endpoint /login
+    Guardar Token
+    Criar Dados Produto
     Seleciona ID "0000000000000000"
     PUT Endpoint /produtos
     Guardar ID
@@ -112,16 +132,18 @@ TC 27: Editar produto inexistente 201
 
 TC 28: Editar produto com nome já cadastrado 400
     [Tags]    tc28
-    Fazer Login e Guardar Token "user_valido"
-    Selecionar Produto "monitor_repetido"
-    Seleciona ID "K6leHdftCeOJj8BJ"
+    Selecionar Login "user_valido"
+    POST Endpoint /login
+    Guardar Token
+    Selecionar Produto Repetido
+    Seleciona ID "BeeJh5lz3k6kSIzA"
     PUT Endpoint /produtos
     Validar Status Code "400"
     Validar Mensagem Contém "existe"
 
 TC 29: Editar produto sem autorização 401
     [Tags]    tc29
-    Selecionar Produto "tv_alterar"
+    Criar Dados Produto
     Seleciona ID "K6leHdftCeOJj8BJ"
     PUT Endpoint /produtos
     Validar Status Code "401"
@@ -129,8 +151,10 @@ TC 29: Editar produto sem autorização 401
 
 TC 30: Editar produto sem ser administrador 403
     [Tags]    tc30
-    Fazer Login e Guardar Token "user_nao_adm"
-    Selecionar Produto "tv_alterar"
+    Selecionar Login "user_nao_adm"
+    POST Endpoint /login
+    Guardar Token
+    Criar Dados Produto
     Seleciona ID "K6leHdftCeOJj8BJ"
     PUT Endpoint /produtos
     Validar Status Code "403"

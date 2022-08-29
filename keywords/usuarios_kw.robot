@@ -2,11 +2,6 @@
 Documentation    Keywords para o endpoint /usuarios
 Resource        ../support/base.robot
 
-*** Variables ***
-${payload}
-${id}
-${id_guardado}
-
 *** Keywords ***
 GET Endpoint /usuarios
     ${response}    GET On Session    serverest    /usuarios
@@ -17,8 +12,8 @@ POST Endpoint /usuarios
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 
-GET Endpoint /usuarios/{_id}
-    ${response}    GET On Session    serverest    /usuarios/${id}    expected_status=any
+GET Endpoint /usuarios/
+    ${response}    GET On Session    serverest    /usuarios/${id_guardado}    expected_status=any
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 
@@ -28,7 +23,7 @@ DELETE Endpoint /usuarios
     Set Global Variable    ${response}
 
 PUT Endpoint /usuarios
-    ${response}    PUT On Session    serverest    /usuarios/${id_guardado}    data=&{payload}    expected_status=any
+    ${response}    PUT On Session    serverest    /usuarios/${id_guardado}    json=&{payload}    expected_status=any
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 

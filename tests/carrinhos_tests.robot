@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    Testes para o endpoint /carrinhos
 Resource        ../keywords/carrinhos_kw.robot
+Resource        ../keywords/login_kw.robot
 
 Suite Setup    Criar Sessão
 
@@ -13,7 +14,9 @@ TC 31: Listar carrinhos 200
 
 TC 32: Cadastrar carrinho 201
     [Tags]    tc32
-    Fazer Login e Guardar Token "user_valido"
+    Selecionar Login "user_valido"
+    POST Endpoint /login
+    Guardar Token
     Criar carrinho
     POST Endpoint /carrinhos
     Guardar ID
@@ -23,7 +26,9 @@ TC 32: Cadastrar carrinho 201
 
 TC 33: Cadastrar carrinho com erro 400
     [Tags]    tc33
-    Fazer Login e Guardar Token "user_com_carrinho"
+    Selecionar Login "user_com_carrinho"
+    POST Endpoint /login
+    Guardar Token
     Criar carrinho
     POST Endpoint /carrinhos
     Validar Status Code "400"
@@ -51,7 +56,9 @@ TC 36: Buscar carrinho inexistente 400
 
 TC 37: Excluir carrinho - concluir compra
     [Tags]    tc37
-    Fazer Login e Guardar Token "user_valido"
+    Selecionar Login "user_valido"
+    POST Endpoint /login
+    Guardar Token
     Criar carrinho
     POST Endpoint /carrinhos
     DELETE Endpoint /carrinhos/concluir-compra
@@ -66,7 +73,9 @@ TC 38: Excluir carrinho sem autorização
 
 TC 39: Excluir carrinho e retornar produtos para estoque - cancelar compra
     [Tags]    tc39
-    Fazer Login e Guardar Token "user_valido"
+    Selecionar Login "user_valido"
+    POST Endpoint /login
+    Guardar Token
     Criar carrinho
     POST Endpoint /carrinhos
     DELETE Endpoint /carrinhos/cancelar-compra

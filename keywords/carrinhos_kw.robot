@@ -2,11 +2,6 @@
 Documentation    Keywords para o endpoint /carrinhos
 Resource        ../support/base.robot
 
-*** Variables ***
-${id_guardado}
-${token}
-${payload}
-
 *** Keywords ***
 GET Endpoint /carrinhos
     ${response}    GET On Session    serverest    /carrinhos
