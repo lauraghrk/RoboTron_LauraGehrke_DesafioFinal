@@ -3,4 +3,4 @@ TEST CASES 2 E 3
 
 
 -------
--  carrinho cadastrado é de um usuário inexistente??
+- O carrinho defult mostrado na documentação pertence ao ID de um usuário inexistente.

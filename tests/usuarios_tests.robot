@@ -6,14 +6,13 @@ Resource        ../keywords/login_kw.robot
 Suite Setup    Criar Sessão
 
 *** Test Cases ***
-TC 4: GET - Listar usuários 200
-    [Tags]    tc4
+TC 04: GET - Listar usuários 200
+    [Tags]    tc04
     GET Endpoint /usuarios
     Validar Status Code "200"
-    Mostrar Conteúdo da Resposta
 
-TC 5: POST - Cadastrar usuário 201
-    [Tags]    tc5
+TC 05: POST - Cadastrar usuário 201
+    [Tags]    tc05
     Criar Dados Usuário Válido
     POST Endpoint /usuarios
     Guardar ID
@@ -21,28 +20,28 @@ TC 5: POST - Cadastrar usuário 201
     Validar Mensagem Contém "sucesso"
     DELETE Endpoint /usuarios
 
-TC 6: POST - Cadastrar usuário repetido 400
-    [Tags]    tc6
+TC 06: POST - Cadastrar usuário repetido 400
+    [Tags]    tc06
     Selecionar Usuário "user_repetido"
     POST Endpoint /usuarios
     Validar Status Code "400"
     Validar Mensagem Contém "usado"
 
-TC 7: GET - Buscar usuário 200
-    [Tags]    tc7
+TC 07: GET - Buscar usuário 200
+    [Tags]    tc07
     Seleciona ID "0uxuPY0cbmQhpEz1"
     GET Endpoint /usuarios/
     Validar Status Code "200"
 
-TC 8: GET - Buscar usuário inexistente 400
-    [Tags]    tc8
+TC 08: GET - Buscar usuário inexistente 400
+    [Tags]    tc08
     Seleciona ID "0000000000000000"
     GET Endpoint /usuarios/
     Validar Status Code "400"
     Validar Mensagem Contém "não encontrado"
 
-TC 9: DELETE - Excluir usuário 200
-    [Tags]    tc9
+TC 09: DELETE - Excluir usuário 200
+    [Tags]    tc09
     Criar Dados Usuário Válido
     POST Endpoint /usuarios
     Guardar ID
@@ -63,6 +62,7 @@ TC 11: DELETE - Excluir usuário com carrinho 400
     DELETE Endpoint /usuarios
     Validar Status Code "400"
     Validar Mensagem Contém "Não é permitido"
+    Validar Usuário Tem Carrinho
 
 TC 12: PUT - Editar usuário existente 200
     [Tags]    tc12

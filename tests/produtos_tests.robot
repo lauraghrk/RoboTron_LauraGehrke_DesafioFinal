@@ -34,8 +34,9 @@ TC 17: POST - Cadastrar produto com nome já cadastrado 400
     Validar Status Code "400"
     Validar Mensagem Contém "Já existe"
 
-TC 18: POST - Cadastrar produto sem login 401
+TC 18: POST - Cadastrar produto com token expirado 401
     [Tags]    tc18
+    Definir Token Expirado
     Criar Dados Produto
     POST Endpoint /produtos
     Validar Status Code "401"
@@ -86,8 +87,9 @@ TC 23: Excluir produto com carrinho 400
     Validar Status Code "400"
     Validar Mensagem Contém "faz parte de carrinho"
 
-TC 24: Excluir produto sem autorização 401
+TC 24: Excluir produto com token expirado 401
     [Tags]    tc24
+    Definir Token Expirado
     Seleciona ID "K6leHdftCeOJj8BJ"
     DELETE Endpoint /produtos
     Validar Status Code "401"
@@ -141,8 +143,9 @@ TC 28: Editar produto com nome já cadastrado 400
     Validar Status Code "400"
     Validar Mensagem Contém "existe"
 
-TC 29: Editar produto sem autorização 401
+TC 29: Editar produto com token expirado 401
     [Tags]    tc29
+    Definir Token Expirado
     Criar Dados Produto
     Seleciona ID "K6leHdftCeOJj8BJ"
     PUT Endpoint /produtos

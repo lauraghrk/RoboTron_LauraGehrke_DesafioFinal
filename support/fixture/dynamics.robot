@@ -11,7 +11,7 @@ Criar Dados Usuário Válido
     Set Global Variable    ${payload}
 
 Criar Dados Produto
-    ${nome}    FakerLibrary.Word    ext_word_list=['Mouse', 'Teclado', 'Monitor', 'TV', 'Celular', 'Fone de ouvido', 'Carregador', 'Smartwatch']
+    ${nome}    FakerLibrary.Word    ext_word_list=['Mouse', 'Teclado', 'Monitor', 'TV', 'Celular', 'Fone de ouvido', 'Carregador']
     ${preco}    FakerLibrary.Random Int    min=30
     ${descricao}    FakerLibrary.Sentence    nb_words=4
     ${quantidade}    FakerLibrary.Random Int    min=1    max=200

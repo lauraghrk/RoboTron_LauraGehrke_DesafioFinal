@@ -34,8 +34,9 @@ TC 33: Cadastrar carrinho com erro 400
     Validar Status Code "400"
     Validar Mensagem Contém "Não é permitido"
 
-TC 34: Cadastrar carrinho sem autorização 401
+TC 34: Cadastrar carrinho com token expirado 401
     [Tags]    tc34
+    Definir Token Expirado
     Criar carrinho
     POST Endpoint /carrinhos
     Validar Status Code "401"
@@ -54,7 +55,7 @@ TC 36: Buscar carrinho inexistente 400
     Validar Status Code "400"
     Validar Mensagem Contém "não encontrado"
 
-TC 37: Excluir carrinho - concluir compra
+TC 37: Excluir carrinho - concluir compra 200
     [Tags]    tc37
     Selecionar Login "user_valido"
     POST Endpoint /login
@@ -65,13 +66,14 @@ TC 37: Excluir carrinho - concluir compra
     Validar Status Code "200"
     Validar Mensagem Contém "sucesso"
 
-TC 38: Excluir carrinho sem autorização
+TC 38: Excluir carrinho com token expirado 401
     [Tags]    tc38
+    Definir Token Expirado
     DELETE Endpoint /carrinhos/concluir-compra
     Validar Status Code "401"
     Validar Mensagem Contém "inválido"
 
-TC 39: Excluir carrinho e retornar produtos para estoque - cancelar compra
+TC 39: Excluir carrinho e retornar produtos para estoque - cancelar compra 200
     [Tags]    tc39
     Selecionar Login "user_valido"
     POST Endpoint /login
@@ -82,8 +84,9 @@ TC 39: Excluir carrinho e retornar produtos para estoque - cancelar compra
     Validar Status Code "200"
     Validar Mensagem Contém "sucesso"
 
-TC 40: Excluir carrinho e retornar produtos para estoque sem autorização
+TC 40: Excluir carrinho e retornar produtos para estoque com token expirado 401
     [Tags]    tc40
+    Definir Token Expirado
     DELETE Endpoint /carrinhos/cancelar-compra
     Validar Status Code "401"
     Validar Mensagem Contém "inválido"
