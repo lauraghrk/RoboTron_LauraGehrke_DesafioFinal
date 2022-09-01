@@ -1,8 +1,8 @@
 ---
-nome: Relatório de bug
-sobre: Relate um problema para que possamos corrigir. 
-título: "[BUG]"
-responsável: lauraghrk
+name: Relatório de bug
+about: Relate um problema para que possamos corrigir. 
+title: "[BUG]"
+assignee: lauraghrk
 
 ---
 
