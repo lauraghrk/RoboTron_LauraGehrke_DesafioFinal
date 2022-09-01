@@ -24,7 +24,7 @@ TC 32: Cadastrar carrinho 201
     Validar Mensagem Contém "sucesso"
     DELETE Endpoint /carrinhos/cancelar-compra
 
-TC 33: Cadastrar carrinho com erro 400
+TC 33: Cadastrar carrinho com usuário duplicado 400
     [Tags]    tc33
     Selecionar Login "user_com_carrinho"
     POST Endpoint /login

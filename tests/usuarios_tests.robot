@@ -26,6 +26,7 @@ TC 06: POST - Cadastrar usuário repetido 400
     POST Endpoint /usuarios
     Validar Status Code "400"
     Validar Mensagem Contém "usado"
+    Validar Email Já Cadastrado
 
 TC 07: GET - Buscar usuário 200
     [Tags]    tc07
@@ -92,3 +93,4 @@ TC 14: PUT - Editar usuário usando email já cadastrado 400
     PUT Endpoint /usuarios
     Validar Status Code "400"
     Validar Mensagem Contém "usado"
+    Validar Email Já Cadastrado

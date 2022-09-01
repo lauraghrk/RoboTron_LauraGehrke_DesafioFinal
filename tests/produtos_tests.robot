@@ -33,6 +33,7 @@ TC 17: POST - Cadastrar produto com nome já cadastrado 400
     POST Endpoint /produtos
     Validar Status Code "400"
     Validar Mensagem Contém "Já existe"
+    Validar Produto Repetido
 
 TC 18: POST - Cadastrar produto com token expirado 401
     [Tags]    tc18

@@ -33,3 +33,7 @@ PUT Endpoint /produtos
 Selecionar Produto Repetido
     ${payload}    Create Dictionary    nome=Samsung 60 polegadas    preco=5000    descricao=TV samsung    quantidade=127
     Set Global Variable    ${payload}
+
+Validar Produto Repetido
+    ${produto}    mostrar produto repetido    nome=${payload["nome"]}
+    Log To Console    Produto: ${produto}

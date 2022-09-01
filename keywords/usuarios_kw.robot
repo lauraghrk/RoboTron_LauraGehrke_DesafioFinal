@@ -5,7 +5,7 @@ Resource        ../support/base.robot
 *** Keywords ***
 GET Endpoint /usuarios
     ${response}    GET On Session    serverest    /usuarios
-    Log To Console    Resposta: ${response}
+    Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 
 POST Endpoint /usuarios
@@ -28,11 +28,15 @@ PUT Endpoint /usuarios
     Log To Console    Resposta: ${response.content}
     Set Global Variable    ${response}
 
-Selecionar Usuário "${val}"
+Selecionar Usuário "${user}"
     ${json}    Importar JSON Estático    json_usuarios.json
-    ${payload}    Set Variable    ${json["${val}"]}
+    ${payload}    Set Variable    ${json["${user}"]}
     Set Global Variable    ${payload}
 
 Validar Usuário Tem Carrinho
     ${carrinho}    mostrar carrinho usuario    id_user=${id_guardado}
     Log To Console    ${carrinho}
+
+Validar Email Já Cadastrado  
+    ${usuario}    mostrar usuario email    email=${payload["email"]}
+    Log To Console    Usuário: ${usuario}
