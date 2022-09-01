@@ -1,38 +1,32 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: "[BUG]"
-labels: ''
-assignees: lauraghrk
+nome: Relatório de bug
+sobre: Relate um problema para que possamos corrigir. 
+título: "[BUG]"
+responsável: lauraghrk
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Descrição do bug**  
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+Descreva o bug com o maior número de detalhes possível.
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Como reproduzir**
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+Descreva o passo a passo de como reproduzir o bug.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+**Comportamento esperado**
 
-**Additional context**
-Add any other context about the problem here.
+Descreva o que deve acontecer ao reproduzir o bug.
+
+**Imagens (prints)**
+
+Adicione imagens que ajudem a descrever o problema.
+
+**Versão**
+
+Informe em qual versão do Python e do Robot está ocorrendo o bug.
+
+**Informações adicionais**
+
+Insira qualquer outra informação que julgue relevante para a descrição do problema.
