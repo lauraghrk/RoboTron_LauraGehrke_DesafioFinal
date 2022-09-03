@@ -4,6 +4,10 @@
 Este repositório mostra a automação de testes da [API ServeRest](https://serverest.dev/) utilizando o framework [Robot](https://robotframework.org/).  
 Os códigos desenvolvidos fazem parte do programa de bolsas da Compass.Uol, trilha de aprendizado Robotron.
 
+## Mapa Mental da API ServeRest
+<img width="504" alt="Mapa Mental" src="https://user-images.githubusercontent.com/76006992/188275751-305137c1-20eb-43ee-bf10-a8df12337f32.PNG">
+Mapa mental desenvolvido no XMind. O arquivo completo pode ser encontrado na pasta principal do repositório.
+
 ## Para testar os códigos :computer:
 - Você deve ter o Python e o Robot instalados na sua máquina.
 Caso ainda não tenha, [clique aqui para instruções de instalação.](https://github.com/robotframework/robotframework/blob/master/INSTALL.rst)
