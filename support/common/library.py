@@ -26,14 +26,15 @@ def mostrar_usuario_email(email):
             user = response["usuarios"][i]["nome"]
     return user
 
-#Mostrar produto já existente buscando pelo nome
+#Mostrar o ID do produto já existente buscando pelo nome
 
-def mostrar_produto_repetido(nome):
+def mostrar_id_produto_repetido(nome):
     r = req.get("http://localhost:3000/produtos")
     response = r.json()
     qtd_produtos = int(response["quantidade"])
     produto = None
-    for i in range(0, qtd_produtos-1):
+    for i in range(0, qtd_produtos):
         if(response["produtos"][i]["nome"] == nome):
-            produto = response["produtos"][i]
+            produto = response["produtos"][i]["_id"]
     return produto
+

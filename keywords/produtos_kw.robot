@@ -35,5 +35,5 @@ Selecionar Produto Repetido
     Set Global Variable    ${payload}
 
 Validar Produto Repetido
-    ${produto}    mostrar produto repetido    nome=${payload["nome"]}
+    ${produto}    mostrar id produto repetido    nome=${payload["nome"]}
     Log To Console    Produto: ${produto}

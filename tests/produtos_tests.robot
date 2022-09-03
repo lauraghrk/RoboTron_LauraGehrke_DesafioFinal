@@ -143,6 +143,7 @@ TC 28: Editar produto com nome já cadastrado 400
     PUT Endpoint /produtos
     Validar Status Code "400"
     Validar Mensagem Contém "existe"
+    Validar Produto Repetido
 
 TC 29: Editar produto com token expirado 401
     [Tags]    tc29
