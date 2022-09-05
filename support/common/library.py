@@ -38,3 +38,16 @@ def mostrar_id_produto_repetido(nome):
             produto = response["produtos"][i]["_id"]
     return produto
 
+#Mostrar o saldo do produto antes e depois de concluir a compra
+
+def mostrar_saldo_produtos_carrinho(carrinho):
+    r = req.get("http://localhost:3000/produtos")
+    response = r.json()
+    n_prod_carrinho = len(carrinho)
+    qtd_produtos = int(response["quantidade"])
+    saldo = []
+    for p in range(0, n_prod_carrinho):
+        for i in range(0, qtd_produtos):
+            if (response["produtos"][i]["_id"] == carrinho[p]["idProduto"]):
+                saldo.append(response["produtos"][i]["nome"] + ": " + str(response["produtos"][i]["quantidade"]))
+    return saldo

@@ -61,10 +61,12 @@ TC 37: Excluir carrinho - concluir compra 200
     POST Endpoint /login
     Guardar Token
     Criar carrinho
+    Validar Saldo Produtos
     POST Endpoint /carrinhos
     DELETE Endpoint /carrinhos/concluir-compra
     Validar Status Code "200"
     Validar Mensagem Contém "sucesso"
+    Validar Saldo produtos
 
 TC 38: Excluir carrinho com token expirado 401
     [Tags]    tc38
@@ -79,10 +81,12 @@ TC 39: Excluir carrinho e retornar produtos para estoque - cancelar compra 200
     POST Endpoint /login
     Guardar Token
     Criar carrinho
+    Validar Saldo Produtos
     POST Endpoint /carrinhos
     DELETE Endpoint /carrinhos/cancelar-compra
     Validar Status Code "200"
     Validar Mensagem Contém "sucesso"
+    Validar Saldo Produtos
 
 TC 40: Excluir carrinho e retornar produtos para estoque com token expirado 401
     [Tags]    tc40

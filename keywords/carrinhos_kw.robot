@@ -34,3 +34,7 @@ Criar carrinho
     ${json}    Importar JSON Estático    json_carrinhos.json
     ${payload}    Set Variable    ${json}
     Set Global Variable    ${payload}
+
+Validar Saldo Produtos
+    ${saldo}    mostrar saldo produtos carrinho    carrinho=${payload["produtos"]}
+    Log To Console    Saldo: ${saldo}
