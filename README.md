@@ -12,11 +12,13 @@ Mapa mental desenvolvido no XMind. O arquivo completo pode ser encontrado na pas
 - Você deve ter o Python e o Robot instalados na sua máquina.
 Caso ainda não tenha, [clique aqui para instruções de instalação.](https://github.com/robotframework/robotframework/blob/master/INSTALL.rst)
 
-- Para clonar esse repositório, abra o Git Bash na pasta onde deseja que ele seja adicionado e execute seguinte comando:
+- Para clonar esse repositório, abra o Git Bash na pasta onde deseja que ele seja adicionado e execute seguinte comando:  
+`$ git clone https://github.com/lauraghrk/RoboTron_LauraGehrke_DesafioFinal.git`
+  
+- Para iniciar a API localmente, abra o terminal de comando e execute: `npx serverest`  
+  Mantenha esse terminal aberto durante toda a execução dos testes.
 
-  `$ git clone https://github.com/lauraghrk/RoboTron_LauraGehrke_DesafioFinal.git`
-
-- Com o ambiente preparado, abra o terminal de comando e execute: `cd` + `caminho da pasta RoboTron_LauraGehrke_DesafioFinal`
+- Com o ambiente preparado, abra um novo terminal de comando e execute: `cd` + `caminho da pasta RoboTron_LauraGehrke_DesafioFinal`
 
 - Uma vez dentro da pasta do projeto, escolha um dos comandos a seguir:
 
