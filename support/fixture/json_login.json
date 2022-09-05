@@ -1,0 +1,22 @@
+{
+    "user_valido": {
+        "email": "fulano@qa.com",
+        "password": "teste"
+    },
+    "user_invalido": {
+        "email": "email@inexistente.com",
+        "password": "teste321"
+    },
+    "user_senha_errada": {
+        "email": "fulano@qa.com",
+        "password": "senhaerrada"
+    },
+    "user_nao_adm": {
+        "email": "rossg@gmail.com",
+        "password": "senha11"
+    },
+    "user_com_carrinho": {
+        "email": "monicag@gmail.com",
+        "password": "senha22"
+    }
+}

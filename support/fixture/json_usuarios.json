@@ -1,0 +1,26 @@
+{
+    "user_modificar": {
+        "nome": "Alan Turing",
+        "email": "alanturing@gmail.com",
+        "password": "senha123",
+        "administrador": "true"
+    },
+    "user_repetido": {
+        "nome": "Fulano Repetido",
+        "email": "fulano@qa.com",
+        "password": "teste",
+        "administrador": "true"
+    },
+    "user_nao_adm": {
+        "nome": "Ross Geller",
+        "email": "rossg@gmail.com",
+        "password": "senha11",
+        "administrador": "false"
+    },
+    "user_com_carrinho": {
+        "nome": "Monica Geller",
+        "email": "monicag@gmail.com",
+        "password": "senha22",
+        "administrador": "true"
+    }
+}
